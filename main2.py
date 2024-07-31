@@ -8,6 +8,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+from config import CHROME_DRIVER_PATH, URLS_JSON_PATH
+
 
 class WebScraper:
     def __init__(self, chrome_driver_path, base_url, output_file):
@@ -110,8 +112,8 @@ class WebScraper:
 
 
 if __name__ == "__main__":
-    chrome_driver_path = "C:\\Drivers\\Web\\chromedriver.exe"  # Update this path
+    chrome_driver_path = CHROME_DRIVER_PATH
     base_url = "https://online.minjust.gov.kg/user/search?fullNameRu=IT&locality=41711000000000&localityType=REPUBLICAN_CITY&operator=AND&page=0&size=50"
-    output_file = "output_urls.json"  # Path to the JSON output file
+    output_file = URLS_JSON_PATH
     scraper = WebScraper(chrome_driver_path, base_url, output_file)
     scraper.run()
